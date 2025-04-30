@@ -1,5 +1,6 @@
 package com.modive.llm.controller;
 
+import com.modive.llm.dto.DrivingSummaryRequest;
 import com.modive.llm.dto.PromptRequest;
 import com.modive.llm.service.LLMService;
 import lombok.RequiredArgsConstructor;
@@ -16,9 +17,11 @@ public class LLMController {
 
     @PostMapping("/feedbacks")
     public ResponseEntity<?> getFeedback(@RequestBody PromptRequest request) {
-
-        // TODO: 유저인증 추가
-
         return ResponseEntity.ok().body(llmService.getFeedbacks(request.getMessage()));
+    }
+
+    @PostMapping("/post-feedbacks")
+    public ResponseEntity<?> getPostFeedback(@RequestBody DrivingSummaryRequest request) {
+        return ResponseEntity.ok().body(llmService.getPostFeedback(request));
     }
 }
