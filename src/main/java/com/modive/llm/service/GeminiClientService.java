@@ -1,7 +1,7 @@
 package com.modive.llm.service;
 
-import com.modive.llm.dto.FeedbackRequest;
-import com.modive.llm.dto.FeedbackResponse;
+import com.modive.llm.dto.request.FeedbackRequest;
+import com.modive.llm.dto.response.FeedbackResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.modive.llm.dto;
+package com.modive.llm.dto.response;
 
 
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package com.modive.llm.dto;
+package com.modive.llm.dto.request;
 
 import lombok.Builder;
 import lombok.Getter;
