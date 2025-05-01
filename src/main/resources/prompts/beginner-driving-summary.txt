@@ -1,0 +1,30 @@
+[Weekly Driving Data for Beginner Driver]
+
+- Average speed: ${avgSpeed} km/h
+- Total driving time: ${totalMinutes} minutes
+- Number of sharp turns: ${sharpTurnCount}
+- Number of lane departures: ${laneDepartureCount}
+- Number of sudden stops: ${suddenStopCount}
+- Number of overspeeding events: ${overspeedCount}
+- Average reaction time: ${reactionTime} seconds
+- Safety distance maintenance time: ${safeDistanceMinutes} minutes
+
+---
+
+[Task]
+
+Based on the above data, provide friendly and supportive feedback for a **beginner driver** in Korean.
+The tone should be encouraging, educational, and easy to understand.
+
+Return your response strictly in the following JSON format:
+
+```json
+{
+  "title": "초보 운전자를 위한 맞춤 피드백",
+  "summary": "이번 주 주행 데이터를 분석한 결과, 전체적으로 안정적인 운전 습관을 형성해가는 과정이 보입니다.",
+  "advices": [
+    "급정지와 급회전을 줄이기 위해 미리 도로 상황을 예측하는 연습을 해보세요.",
+    "차선을 이탈한 경우에는 방어 운전을 위해 방향 지시등 사용 습관도 함께 개선해보면 좋습니다.",
+    "안전거리 유지 시간을 조금 더 늘리면 보다 여유 있는 운전이 가능합니다."
+  ]
+}
