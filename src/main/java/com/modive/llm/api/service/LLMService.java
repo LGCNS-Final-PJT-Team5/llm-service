@@ -1,6 +1,8 @@
-package com.modive.llm.service;
+package com.modive.llm.api.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.modive.llm.common.exception.ModiveException;
+import com.modive.llm.common.exception.ErrorCode;
 import com.modive.llm.domain.FeedbackType;
 import com.modive.llm.dto.request.DrivingSummaryRequest;
 import com.modive.llm.dto.response.DrivingSummaryResponse;
@@ -58,7 +60,7 @@ public class LLMService {
         try (InputStream in = resourceLoader.getResource("classpath:" + classpath).getInputStream()) {
             return new String(in.readAllBytes(), StandardCharsets.UTF_8);
         } catch (IOException e) {
-            throw new IllegalStateException("프롬프트 템플릿 읽기 실패: " + classpath, e);
+            throw new ModiveException(ErrorCode.TEMPLATE_LOAD_FAIL);
         }
     }
 
@@ -67,7 +69,7 @@ public class LLMService {
         try (InputStream in = drivingSummaryTmpl.getInputStream()) {
             template = new String(in.readAllBytes(), StandardCharsets.UTF_8);
         } catch (IOException e) {
-            throw new IllegalStateException("프롬프트 템플릿 읽기 실패", e);
+            throw new ModiveException(ErrorCode.TEMPLATE_LOAD_FAIL);
         }
 
         Map<String, Object> values = Map.ofEntries(
@@ -99,7 +101,7 @@ public class LLMService {
 
             return objectMapper.readValue(cleaned, DrivingSummaryResponse.class);
         } catch (IOException e) {
-            throw new IllegalStateException("Gemini 응답 파싱 실패", e);
+            throw new ModiveException(ErrorCode.GEMINI_PARSE_ERROR);
         }
     }
 
@@ -111,7 +113,7 @@ public class LLMService {
                     .trim();
             return objectMapper.readValue(cleaned, WeekFeedbackResponse.class);
         } catch (IOException e) {
-            throw new IllegalStateException("Gemini Week JSON 파싱 실패", e);
+            throw new ModiveException(ErrorCode.GEMINI_PARSE_ERROR);
         }
     }
 }
