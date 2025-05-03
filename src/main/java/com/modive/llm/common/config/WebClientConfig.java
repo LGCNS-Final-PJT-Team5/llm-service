@@ -1,4 +1,4 @@
-package com.modive.llm.config;
+package com.modive.llm.common.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

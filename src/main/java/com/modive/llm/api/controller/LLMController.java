@@ -1,10 +1,10 @@
-package com.modive.llm.controller;
+package com.modive.llm.api.controller;
 
 import com.modive.llm.domain.FeedbackType;
 import com.modive.llm.dto.request.DrivingSummaryRequest;
 import com.modive.llm.dto.request.PromptRequest;
 import com.modive.llm.dto.request.WeekFeedbackRequest;
-import com.modive.llm.service.LLMService;
+import com.modive.llm.api.service.LLMService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
