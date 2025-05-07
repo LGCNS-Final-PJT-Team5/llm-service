@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DrivingSummaryResponse {
+public class SingleDriveFeedbackResponse {
     private String rapidAccelerationDecelerationCountFeedback;
     private String sharpTurnCountFeedback;
     private String overspeedCountFeedback;
