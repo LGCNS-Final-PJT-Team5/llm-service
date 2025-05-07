@@ -12,8 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class WeekFeedbackResponse {
+public class TotalDriveFeedbackResponse {
     private String title;
     private String summary;
-    private List<String> advices;   // size == 3
+    private List<String> advices;
 }
