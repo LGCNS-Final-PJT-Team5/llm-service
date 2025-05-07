@@ -23,9 +23,6 @@ import static com.modive.llm.domain.FeedbackType.DRIVE;
 @Service
 @RequiredArgsConstructor
 public class LLMService {
-
-    @Value("classpath:prompts/multi-metric-feedback.txt")
-    private Resource drivingSummaryTmpl;
     private final ObjectMapper objectMapper;
     private final GeminiClientService geminiClientService;
     private final ResourceLoader resourceLoader;

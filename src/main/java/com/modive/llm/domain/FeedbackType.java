@@ -11,14 +11,14 @@ public enum FeedbackType {
     DRIVE("prompts/single-drive/multi-metric-feedback.txt"),
 
     // prompts/total-drive
-    ECO("prompts/total-drive/eco-driving-summary.txt"),
-    INSURANCE("prompts/total-drive/insurance-driving-summary.txt"),
-    BEGINNER("prompts/total-drive/beginner-driving-summary.txt"),
-    REWARD("prompts/total-drive/reward-driving-summary.txt"),
-    MAINTENANCE("prompts/total-drive/maintenance-driving-summary.txt"),
-    CARBON("prompts/total-drive/carbon-driving-summary.txt"),
+    ECO("prompts/total-drive/1-eco-driving-summary.txt"),
+    INSURANCE("prompts/total-drive/2-insurance-driving-summary.txt"),
+    BEGINNER("prompts/total-drive/3-beginner-driving-summary.txt"),
+    REWARD("prompts/total-drive/4-reward-driving-summary.txt"),
+    MAINTENANCE("prompts/total-drive/5-maintenance-driving-summary.txt"),
+    CARBON("prompts/total-drive/6-carbon-driving-summary.txt"),
     DRIVESTAR("prompts/total-drive/drive-star-driving-summary.txt"),
-    TECHNIQUE("prompts/total-drive/technique-driving-summary.txt");
+    TECHNIQUE("prompts/total-drive/8-technique-driving-summary.txt");
 
     private final String templatePath;   // 클래스패스 상대 경로
 }
