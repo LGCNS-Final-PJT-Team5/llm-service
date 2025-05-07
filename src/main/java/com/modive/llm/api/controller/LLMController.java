@@ -1,9 +1,9 @@
 package com.modive.llm.api.controller;
 
 import com.modive.llm.domain.FeedbackType;
-import com.modive.llm.dto.request.DrivingSummaryRequest;
+import com.modive.llm.dto.request.SingleDriveFeedbackRequest;
 import com.modive.llm.dto.request.PromptRequest;
-import com.modive.llm.dto.request.WeekFeedbackRequest;
+import com.modive.llm.dto.request.TotalDriveFeedbackRequest;
 import com.modive.llm.api.service.LLMService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -23,15 +23,15 @@ public class LLMController {
     }
 
     @PostMapping("/post-feedbacks")
-    public ResponseEntity<?> getPostFeedback(@RequestBody DrivingSummaryRequest request) {
-        return ResponseEntity.ok().body(llmService.getPostFeedback(request));
+    public ResponseEntity<?> getPostFeedback(@RequestBody SingleDriveFeedbackRequest request) {
+        return ResponseEntity.ok().body(llmService.getPostFeedback(request.getParams()));
     }
 
     @PostMapping("/week-feedbacks/{type}")
     public ResponseEntity<?> weekFeedback(@PathVariable FeedbackType type,
-                                          @RequestBody WeekFeedbackRequest body) {
+                                          @RequestBody TotalDriveFeedbackRequest request) {
         return ResponseEntity.ok(
-                llmService.getWeekFeedbackByType(type, body.getParams())
+                llmService.getWeekFeedbackByType(type, request.getParams())
         );
     }
 }
