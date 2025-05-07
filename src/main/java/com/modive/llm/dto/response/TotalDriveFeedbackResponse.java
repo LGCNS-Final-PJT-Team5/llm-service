@@ -13,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class TotalDriveFeedbackResponse {
+    private String analysisResult;
     private String title;
     private String summary;
     private List<String> advices;
