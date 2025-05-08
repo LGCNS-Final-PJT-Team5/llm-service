@@ -25,18 +25,18 @@ public class GeminiClientService {
     private String geminiApiKey;
 
     public String callGemini(String prompt) {
-        FeedbackRequest body = FeedbackRequest.builder()
-                .contents(List.of(
-                        FeedbackRequest.Content.builder()
-                                .parts(List.of(
-                                        FeedbackRequest.Part.builder()
-                                                .text(prompt)
-                                                .build()
-                                ))
-                                .build()
-                ))
-                .build();
+        FeedbackRequest body = getFeedbackRequest(prompt);
 
+        FeedbackResponse res = getFeedbackResponse(body);
+
+        return res.getCandidates().stream()
+                .findFirst()
+                .map(c -> c.getContent().getParts().get(0).getText())
+                .orElseThrow(() ->
+                        new ModiveException(ErrorCode.GEMINI_EMPTY_RESPONSE));
+    }
+
+    private FeedbackResponse getFeedbackResponse(FeedbackRequest body) {
         FeedbackResponse res = webClient.post()
                 .uri(apiUrl + "?key=" + geminiApiKey)
                 .bodyValue(body)
@@ -49,12 +49,22 @@ public class GeminiClientService {
                 .blockOptional()
                 .orElseThrow(() ->
                         new ModiveException(ErrorCode.GEMINI_API_ERROR));
+        return res;
+    }
 
-        return res.getCandidates().stream()
-                .findFirst()
-                .map(c -> c.getContent().getParts().get(0).getText())
-                .orElseThrow(() ->
-                        new ModiveException(ErrorCode.GEMINI_EMPTY_RESPONSE));
+    private FeedbackRequest getFeedbackRequest(String prompt) {
+        FeedbackRequest body = FeedbackRequest.builder()
+                .contents(List.of(
+                        FeedbackRequest.Content.builder()
+                                .parts(List.of(
+                                        FeedbackRequest.Part.builder()
+                                                .text(prompt)
+                                                .build()
+                                ))
+                                .build()
+                ))
+                .build();
+        return body;
     }
 }
 
