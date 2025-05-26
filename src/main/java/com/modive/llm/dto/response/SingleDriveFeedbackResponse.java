@@ -21,4 +21,5 @@ public class SingleDriveFeedbackResponse {
     private String safeDistanceMaintainMinutesFeedback;
     private String totalDrivingMinutesFeedback;
     private String inactivityTimeMinutesFeedback;
+    private String totalFeedback;
 }
