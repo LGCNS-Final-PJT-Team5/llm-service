@@ -14,5 +14,14 @@ healthCheck:
   enabled: true
   path: /actuator/health
   port: 8080
-  initialDelaySeconds: 30
+  initialDelaySeconds: 60
   periodSeconds: 10
+
+config:
+  server:
+    port: 8080
+  app:
+    name: llm-service
+  gemini:
+    api:
+      url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent
