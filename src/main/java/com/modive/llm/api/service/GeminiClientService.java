@@ -1,5 +1,8 @@
-package com.modive.llm.service;
+package com.modive.llm.api.service;
+import org.springframework.http.HttpStatusCode;
 
+import com.modive.llm.common.exception.ModiveException;
+import com.modive.llm.common.exception.ErrorCode;
 import com.modive.llm.dto.request.FeedbackRequest;
 import com.modive.llm.dto.response.FeedbackResponse;
 import lombok.RequiredArgsConstructor;
@@ -38,15 +41,20 @@ public class GeminiClientService {
                 .uri(apiUrl + "?key=" + geminiApiKey)
                 .bodyValue(body)
                 .retrieve()
+                .onStatus(HttpStatusCode::isError, r ->
+                        r.bodyToMono(String.class)
+                                .defaultIfEmpty("")
+                                .map(msg -> new ModiveException(ErrorCode.GEMINI_API_ERROR)))
                 .bodyToMono(FeedbackResponse.class)
-                .block();
+                .blockOptional()
+                .orElseThrow(() ->
+                        new ModiveException(ErrorCode.GEMINI_API_ERROR));
 
-        return res.getCandidates()
-                .get(0)
-                .getContent()
-                .getParts()
-                .get(0)
-                .getText();
+        return res.getCandidates().stream()
+                .findFirst()
+                .map(c -> c.getContent().getParts().get(0).getText())
+                .orElseThrow(() ->
+                        new ModiveException(ErrorCode.GEMINI_EMPTY_RESPONSE));
     }
 }
 

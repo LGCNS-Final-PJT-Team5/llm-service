@@ -1,4 +1,4 @@
-package com.modive.llm.service;
+package com.modive.llm.api.service;
 
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.text.StringSubstitutor;
