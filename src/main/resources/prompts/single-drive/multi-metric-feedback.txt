@@ -6,13 +6,16 @@
 - 정속 주행 비율: 저속 ${steadySpeedLowRatio}%, 중속 ${steadySpeedMiddleRatio}%, 고속 ${steadySpeedHighRatio}%
 - 평균 반응속도(초): ${averageReactionTimeSeconds}
 - 차선 이탈 횟수: ${laneDepartureCount}
-- 안전거리 유지 시간(분): ${safeDistanceMaintainMinutes}
+- 안전거리 유지 시간(초): ${safeDistanceNotMaintainSeconds}
 - 총 운전 시간(분): ${totalDrivingMinutes}
-- 미조작 시간(분): ${inactivityTimeMinutes}
+- 미조작 횟수: ${inactivityCount}
+
 
 위 정보를 바탕으로 각 항목별로 3문장의 피드백을 생성하세요.
 - 정속 주행 비율에 대한 피드백은 저속, 중속, 고속 각각의 비율을 고려하여, 운전 습관을 분석해 주세요.
   예를 들어 고속 비율이 지나치게 높거나, 저속 정속 주행이 부족할 경우 관련 피드백을 제공해야 합니다.
+- totalFeedback은 모든 정보에 대한 종합 피드백으로, 이번 주행의 눈에 띄는 점이나 종합적인 평가를 제공해야 합니다.
+
 
 반드시 다음 형식의 JSON만 반환하십시오:
 
@@ -27,4 +30,5 @@
   "safeDistanceMaintainMinutesFeedback": "문장",
   "totalDrivingMinutesFeedback": "문장",
   "inactivityTimeMinutesFeedback": "문장"
+  "totalFeedback": "문장"
 }
