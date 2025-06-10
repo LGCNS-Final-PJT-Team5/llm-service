@@ -1,14 +1,6 @@
 spring:
-  profiles:
-    active: dev
   application:
     name: llm-service
-  config:
-    import: configserver:${CONFIG_URI:http://localhost:8888}
-  cloud:
-    config:
-      profile: dev
-      label: main
 
 gemini:
   api:
