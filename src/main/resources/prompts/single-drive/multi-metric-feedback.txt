@@ -4,9 +4,9 @@
 - 과속 구간: ${overspeedCount}
 - 공회전 시간(분): ${idlingTimeMinutes}
 - 정속 주행 비율: 저속 ${steadySpeedLowRatio}%, 중속 ${steadySpeedMiddleRatio}%, 고속 ${steadySpeedHighRatio}%
-- 평균 반응속도(초): ${averageReactionTimeSeconds}
+- 느린 반응 시간 (횟수): ${reactionDelayCount}
 - 차선 이탈 횟수: ${laneDepartureCount}
-- 안전거리 유지 시간(초): ${safeDistanceNotMaintainSeconds}
+- 안전거리 유지 시간(횟수): ${safeDistanceNotMaintainCount}
 - 총 운전 시간(분): ${totalDrivingMinutes}
 - 미조작 횟수: ${inactivityCount}
 
@@ -25,10 +25,10 @@
   "overspeedCountFeedback": "문장",
   "idlingTimeMinutesFeedback": "문장",
   "steadySpeedRatioFeedback": "문장",
-  "averageReactionTimeSecondsFeedback": "문장",
+  "reactionDelayCountFeedback": "문장",
   "laneDepartureCountFeedback": "문장",
-  "safeDistanceMaintainMinutesFeedback": "문장",
+  "safeDistanceNotMaintainCountFeedback": "문장",
   "totalDrivingMinutesFeedback": "문장",
-  "inactivityTimeMinutesFeedback": "문장"
+  "inactivityCountFeedback": "문장"
   "totalFeedback": "문장"
 }
