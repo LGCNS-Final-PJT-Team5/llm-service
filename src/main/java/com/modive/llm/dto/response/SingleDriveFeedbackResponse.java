@@ -16,10 +16,10 @@ public class SingleDriveFeedbackResponse {
     private String overspeedCountFeedback;
     private String idlingTimeMinutesFeedback;
     private String steadySpeedRatioFeedback;
-    private String averageReactionTimeSecondsFeedback;
+    private String reactionDelayCountFeedback;
     private String laneDepartureCountFeedback;
-    private String safeDistanceMaintainMinutesFeedback;
+    private String safeDistanceNotMaintainCountFeedback;
     private String totalDrivingMinutesFeedback;
-    private String inactivityTimeMinutesFeedback;
+    private String inactivityCountFeedback;
     private String totalFeedback;
 }
